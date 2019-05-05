@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo:all"
   },
   "author": "alaanzr",
   "license": "ISC",
@@ -15,5 +16,10 @@
     "pg": "^7.10.0",
     "sequelize": "^5.8.5",
     "sequelize-cli": "^5.4.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0"
   }
 }

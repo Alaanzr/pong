@@ -2,15 +2,18 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "postgres",
+    "database": "development",
     "host": "127.0.0.1",
-    "dialect": "psql"
+    "dialect": "postgres",
+    "define": {
+      "freezeTableName": true
+    }
   },
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "postgres",
+    "database": "test",
     "host": "127.0.0.1",
-    "dialect": "psql"
+    "dialect": "postgres"
   }
 }
