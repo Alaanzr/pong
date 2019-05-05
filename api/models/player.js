@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
-    underscored: true,
+    underscored: true
   })
 
-  player.associate = function(models) {
-    // associations can be defined here
+  player.associate = function (models) {
+    player.belongsToMany(models.match, { through: 'player_match' })
   }
 
   return player

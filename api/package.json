@@ -1,13 +1,11 @@
 {
   "name": "pong-api",
   "version": "0.1.0",
-  "main": "index.js",
   "scripts": {
     "db:migrate": "sequelize db:migrate",
     "db:migrate:undo": "sequelize db:migrate:undo:all"
   },
   "author": "alaanzr",
-  "license": "ISC",
   "dependencies": {
     "koa": "^2.7.0",
     "koa-compress": "^3.0.0",
@@ -16,10 +14,5 @@
     "pg": "^7.10.0",
     "sequelize": "^5.8.5",
     "sequelize-cli": "^5.4.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0"
   }
 }

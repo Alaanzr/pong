@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     match_id: DataTypes.INTEGER,
     score: DataTypes.INTEGER
   }, {
-    underscored: true,
+    underscored: true
   })
 
-  playerMatch.associate = function(models) {
-    // associations can be defined here
+  playerMatch.associate = function (models) {
+
   }
 
   return playerMatch

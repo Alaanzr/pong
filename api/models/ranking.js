@@ -3,11 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     player_id: DataTypes.INTEGER,
     rank: DataTypes.INTEGER
   }, {
-    underscored: true,
+    underscored: true
   })
 
-  ranking.associate = function(models) {
-    // associations can be defined here
+  ranking.associate = function (models) {
+
   }
 
   return ranking

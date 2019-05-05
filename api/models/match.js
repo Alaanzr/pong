@@ -3,11 +3,11 @@ module.exports = (sequelize, DataTypes) => {
     match_group_id: DataTypes.INTEGER,
     winner: DataTypes.INTEGER
   }, {
-    underscored: true,
+    underscored: true
   })
 
-  match.associate = function(models) {
-    // associations can be defined here
+  match.associate = function (models) {
+    match.belongsToMany(models.player, { through: 'player_match' })
   }
 
   return match

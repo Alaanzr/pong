@@ -3,7 +3,7 @@ const path = require('path')
 const Sequelize = require('sequelize')
 const basename = path.basename(__filename)
 const env = process.env.NODE_ENV || 'development'
-const config = require(__dirname + '/../config/config.json')[env]
+const config = require(path.join(__dirname, '..', 'config', 'config.json'))[env]
 const db = {}
 
 const sequelize = config.use_env_variable
@@ -16,13 +16,13 @@ fs
   .forEach(file => {
     const model = sequelize['import'](path.join(__dirname, file))
     db[model.name] = model
-  });
+  })
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db)
   }
-});
+})
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
