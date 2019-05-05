@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('match', {
@@ -8,35 +7,18 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      player_one: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'player',
-          key: 'player_id',
-          deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-        }
-      },
-      player_two: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'player',
-          key: 'player_id',
-          deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-        }
-      },
-      player_one_score: {
-        type: Sequelize.INTEGER
-      },
-      player_two_score: {
-        type: Sequelize.INTEGER
-      },
       match_group_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'match_group',
           key: 'match_group_id',
           deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
         }
+      },
+      winner: {
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       created_at: {
         allowNull: false,
@@ -46,9 +28,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    })
   },
+
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('match');
+    return queryInterface.dropTable('match')
   }
-};
+}

@@ -8,6 +8,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       winner: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       created_at: {
@@ -18,9 +19,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    })
   },
+  
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('match_group');
+    return queryInterface.dropTable('match_group')
   }
-};
+}

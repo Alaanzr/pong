@@ -1,13 +1,14 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const MatchGroup = sequelize.define('MatchGroup', {
+  const matchGroup = sequelize.define('match_group', {
     matchId: DataTypes.INTEGER,
     winner: DataTypes.INTEGER
   }, {
     underscored: true,
-  });
-  MatchGroup.associate = function(models) {
+  })
+
+  matchGroup.associate = function(models) {
     // associations can be defined here
-  };
-  return MatchGroup;
-};
+  }
+
+  return matchGroup
+}
