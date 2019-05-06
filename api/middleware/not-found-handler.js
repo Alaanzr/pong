@@ -1,4 +1,5 @@
 const notFoundHandler = async ({ request, notFound }) => {
+  console.log('NOT FOUND**')
   const { method, path } = request
 
   const message = `${method} ${path}`

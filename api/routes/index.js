@@ -1,3 +1,4 @@
 module.exports = [
-  require('./players')
+  require('./players'),
+  require('./match-groups')
 ]

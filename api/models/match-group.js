@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   matchGroup.associate = function (models) {
-    matchGroup.hasMany(models.match)
+    this.hasMany(models.match, { foreignKey: 'match_group_id' })
   }
 
   return matchGroup
