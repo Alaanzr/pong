@@ -21,7 +21,7 @@ module.exports = {
       }
     })
   },
-  
+
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('match_group')
   }
