@@ -1,51 +1,46 @@
 const date = new Date()
+const timestamps = { created_at: date, updated_at: date }
 const options = { returning: '*' }
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async queryInterface => {
     const [ player1, player2 ] = await queryInterface.bulkInsert('player', [
       {
+        ...timestamps,
         name: 'Player 1',
         email: 'player1@gmail.com',
-        password: 'password',
-        created_at: date,
-        updated_at: date
+        password: 'password'
       },
       {
+        ...timestamps,
         name: 'Player 2',
         email: 'player2@gmail.com',
-        password: 'password',
-        created_at: date,
-        updated_at: date
+        password: 'password'
       }
     ], options)
 
     const [ matchGroup ] = await queryInterface.bulkInsert('match_group', [
       {
-        winner: player1.player_id,
-        created_at: date,
-        updated_at: date
+        ...timestamps,
+        winner: player1.player_id
       }
     ], options)
 
     const [ match1, match2, match3 ] = await queryInterface.bulkInsert('match', [
       {
+        ...timestamps,
         match_group_id: matchGroup.match_group_id,
-        winner: player1.player_id,
-        created_at: date,
-        updated_at: date
+        winner: player1.player_id
       },
       {
+        ...timestamps,
         match_group_id: matchGroup.match_group_id,
-        winner: player2.player_id,
-        created_at: date,
-        updated_at: date
+        winner: player2.player_id
       },
       {
+        ...timestamps,
         match_group_id: matchGroup.match_group_id,
-        winner: player1.player_id,
-        created_at: date,
-        updated_at: date
+        winner: player1.player_id
       }
     ], options)
 
@@ -94,7 +89,7 @@ module.exports = {
     ])
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async queryInterface => {
     await queryInterface.bulkDelete('player', null)
     await queryInterface.bulkDelete('match_group', null)
     await queryInterface.bulkDelete('match', null)

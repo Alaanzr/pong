@@ -1,5 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
   const player = sequelize.define('player', {
+    playerId: {
+      primaryKey: true,
+      type: DataTypes.INTEGER,
+      field: 'player_id'
+    },
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING

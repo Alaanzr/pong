@@ -4,17 +4,17 @@ module.exports = {
       player_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        primaryKey: true,
+        primaryKey: true
       },
       rank: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        primaryKey: true,
+        primaryKey: true
       }
     })
   },
-  
-  down: (queryInterface, Sequelize) => {
+
+  down: queryInterface => {
     return queryInterface.dropTable('ranking')
   }
 }
