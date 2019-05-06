@@ -1,4 +1,4 @@
-const { match_group, match } = require('../models')
+const { matchGroup, match } = require('../models')
 
 const findOne = async (id, filters = {}) => {
   const queryOptions = {
@@ -9,9 +9,7 @@ const findOne = async (id, filters = {}) => {
     queryOptions.include = [ match ]
   }
 
-  const matchGroup = await match_group.findOne(queryOptions)
-
-  return matchGroup
+  return matchGroup.findOne(queryOptions)
 }
 
 const findAll = async filters => {
@@ -21,7 +19,7 @@ const findAll = async filters => {
     queryOptions.include = [ match ]
   }
 
-  return match_group.findAll(queryOptions)
+  return matchGroup.findAll(queryOptions)
 }
 
 module.exports = {

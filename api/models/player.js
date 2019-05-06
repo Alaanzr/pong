@@ -8,8 +8,6 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
-  }, {
-    underscored: true
   })
 
   player.associate = function (models) {

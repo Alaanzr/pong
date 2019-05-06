@@ -1,10 +1,16 @@
 module.exports = (sequelize, DataTypes) => {
-  const playerMatch = sequelize.define('player_match', {
-    player_id: DataTypes.INTEGER,
-    match_id: DataTypes.INTEGER,
+  const playerMatch = sequelize.define('playerMatch', {
+    playerId: {
+      field: 'player_id',
+      type: DataTypes.INTEGER
+    },
+    matchId: {
+      field: 'match_id',
+      type: DataTypes.INTEGER
+    },
     score: DataTypes.INTEGER
   }, {
-    underscored: true
+    tableName: 'player_match'
   })
 
   playerMatch.associate = function (models) {

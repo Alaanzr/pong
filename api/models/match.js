@@ -1,16 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
   const match = sequelize.define('match', {
-    match_id: {
+    matchId: {
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      field: 'match_id'
     },
     // match_group_id: {
     //   references: { model: sequelize.models.match_group },
     //   type: DataTypes.INTEGER
     // },
     winner: DataTypes.INTEGER
-  }, {
-    underscored: true
   })
 
   match.associate = function (models) {

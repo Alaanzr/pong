@@ -1,9 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
   const ranking = sequelize.define('ranking', {
-    player_id: DataTypes.INTEGER,
+    playerId: {
+      field: 'player_id',
+      type: DataTypes.INTEGER
+    },
     rank: DataTypes.INTEGER
-  }, {
-    underscored: true
   })
 
   ranking.associate = function (models) {
