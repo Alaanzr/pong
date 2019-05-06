@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       field: 'match_group_id'
     },
-    winner: DataTypes.INTEGER
+    winner: {
+      references: { key: 'player_id', model: sequelize.models.player },
+      type: DataTypes.INTEGER
+    }
   }, {
     tableName: 'match_group'
   })

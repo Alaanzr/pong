@@ -8,12 +8,21 @@ const always = 'always'
 const all = 'all'
 
 module.exports = {
-  extends: 'eslint:recommended',
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended'
+  ],
 
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
+
+  parser: 'babel-eslint',
+
+  plugins: [
+    'react'
+  ],
 
   env: {
     es6: true,
@@ -86,6 +95,53 @@ module.exports = {
     'space-unary-ops': error,
     'spaced-comment': [ error, always, { "markers": [ ":", "::" ] } ],
     'yoda': [ error, never, { exceptRange: true } ],
-    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 0 }]
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 0 }],
+    
+    'jsx-quotes': [ error, 'prefer-double' ],   
+    'react/forbid-prop-types': [ error, { forbid: [ any ] } ],
+    'no-multiple-empty-lines': [ error, { max: 1 } ],
+    'react/jsx-boolean-value': [ off ],
+    'react/jsx-indent': [ warn, 2 ],
+    'react/jsx-indent-props': [ warn, 2 ],
+    'react/jsx-pascal-case': error,
+    'react/jsx-tag-spacing': [ error, { 'beforeSelfClosing': 'always' } ],
+    'react/sort-comp': [ error, {
+      order: [
+        'static-methods',
+        'lifecycle',
+        'everything-else',
+        'render'
+      ],
+      groups: {
+        lifecycle: [
+          'displayName',
+          'propTypes',
+          'props',
+          'contextTypes',
+          'childContextTypes',
+          'mixins',
+          'statics',
+          'defaultProps',
+          'state',
+          'constructor',
+          'getDefaultProps',
+          'getInitialState',
+          'state',
+          'getChildContext',
+          'componentWillMount',
+          'componentDidMount',
+          'componentWillReceiveProps',
+          'shouldComponentUpdate',
+          'componentWillUpdate',
+          'componentDidUpdate',
+          'componentWillUnmount'
+        ]
+      }
+    } ],
+    'react/no-did-mount-set-state': error,
+    'react/no-did-update-set-state': error,
+    'react/no-unused-prop-types': warn,
+    'react/no-multi-comp': [ warn, { ignoreStateless: true } ],
+    'react/prefer-stateless-function': [ error, { ignorePureComponents: true } ]
   }
 }
